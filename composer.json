@@ -16,9 +16,8 @@
         "Laravel Casts",
         "Caching",
         "State Persistence",
-        "mkd/laravel-state-management"
-    ]
-,
+        "laravel-state-management"
+    ],
     "homepage": "https://github.com/mustafakhaleddev/laravel-state-management",
     "license": "MIT",
     "type": "library",
