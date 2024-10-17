@@ -1,0 +1,57 @@
+{
+    "name": "mkd/laravel-state-management",
+    "description": "a state management package for Laravel, enabling shared and persistent application state across services, requests, and files without the need for reinitialization. It supports casting, default state handling, and custom methods for managing complex state in your Laravel applications",
+    "keywords": [
+        "Laravel",
+        "State Management",
+        "Shared State",
+        "Persistent State",
+        "Global State",
+        "Store Casting",
+        "State Rehydration",
+        "Custom Store Methods",
+        "Redux",
+        "Laravel Package",
+        "State Attributes",
+        "Laravel Casts",
+        "Caching",
+        "State Persistence",
+        "mkd/laravel-state-management"
+    ]
+,
+    "homepage": "https://github.com/mustafakhaleddev/laravel-state-management",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mustafa Khaled",
+            "email": "mustafakhaled.dev@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^8.0|^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MKD\\StateManagement\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MKD\\StateManagement\\StateManagementServiceProvider"
+            ],
+            "aliases": {
+                "StateManagement": "MKD\\StateManagement\\StateManagementFacade"
+            }
+        }
+    }
+}
