@@ -11,7 +11,7 @@ abstract class StoreContract implements StoreInterface
     use StoreAttributes;
 
     protected array $state;
-    protected string $key;
+    protected int|string|null $key;
 
     protected bool $customPersist;
     protected bool $customRehydrate;
@@ -21,7 +21,7 @@ abstract class StoreContract implements StoreInterface
      * @param string $key
      * @return void
      */
-    final public function setKey(string $key): void
+    final public function setKey(int|string|null $key): void
     {
         $this->key = $key;
     }
@@ -41,16 +41,34 @@ abstract class StoreContract implements StoreInterface
      * Override default caching persist
      * @return void
      */
-    public function persistUsing()
+    public function persistUsing(): void
     {
-        $this->customPersist = true;
     }
 
     /**
      * Override default hydrate from caching
      * @return void
      */
-    public function rehydrateUsing()
+    public function rehydrateUsing(): void
+    {
+    }
+
+
+    /**
+     * Set flag to use custom persist
+     * @return void
+     */
+    final public function initCustomPersist(): void
+    {
+        $this->customPersist = true;
+    }
+
+
+    /**
+     * Set flag to use custom rehydrate
+     * @return void
+     */
+    final public function initCustomRehydrate(): void
     {
         $this->customRehydrate = true;
     }
@@ -78,7 +96,7 @@ abstract class StoreContract implements StoreInterface
      * Presist State using default state
      * @return void
      */
-    private function persistFromDefault(): void
+    final public function persistFromDefault(): void
     {
         $this->setState($this->default());
         $this->persist();
@@ -101,7 +119,6 @@ abstract class StoreContract implements StoreInterface
             $this->setState($storedState ? json_decode($storedState, true) : []);
         }
     }
-
 
 
     /**

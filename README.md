@@ -197,8 +197,10 @@ You can override `persist` logic by implementing your own logic in store class
 ```php
     public function persistUsing()
     {
-        parent::persistUsing();
         //Your own persist logic
+        
+        //Init custom persist flag
+        $this->initCustomPersist()
     }
 ```
 
@@ -221,8 +223,10 @@ You can override `rehydrate` logic by implementing your own logic in store class
 ```php
     public function rehydrateUsing()
     {
-        parent::rehydrateUsing();
         // your own rehydrating logic
+        
+        //Init custom rehydrate flag
+        $this->initCustomRehydrate();
     }
 ```
 ## License
